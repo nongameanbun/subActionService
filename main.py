@@ -69,9 +69,9 @@ def get_macros():
         with open(macro_path, "r", encoding="utf-8") as f:
             data = json.load(f)
         accounts = data.get("accounts", [])
-        return {"resp": 0, "message": "Macros loaded.", "data": accounts}
+        return {"resp": accounts, "message": "Macros loaded."}
     except FileNotFoundError:
-        return {"resp": 0, "message": "No macros file found.", "data": []}
+        return {"resp": [], "message": "No macros file found."}
     except Exception as e:
         return {"resp": -1, "message": str(e)}
 
