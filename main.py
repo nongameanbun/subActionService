@@ -14,7 +14,8 @@ def _check_idle():
     """runner 프로세스나 인터럽트가 실행 중이면 에러 dict 반환, idle이면 None"""
     try:
         pid_resp = get_main_pid()
-        if pid_resp is not None:
+        print(pid_resp)
+        if pid_resp != -1:
             return {"resp": -1, "message": "Runner process is running. SubAction blocked."}
     except Exception:
         pass  # mainAction 서버 꺼져있으면 runner 없는 것으로 간주
